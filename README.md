@@ -515,6 +515,8 @@ npm run preview      # Preview production build
 
 ## Deployment
 
+**Live Demo:** [https://vercel.com/archie0410s-projects/slot-swapper-mvev](https://vercel.com/archie0410s-projects/slot-swapper-mvev)
+
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 
 ### Quick Deploy to Vercel (Frontend)

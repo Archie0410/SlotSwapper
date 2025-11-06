@@ -1,5 +1,9 @@
 # Deployment Guide
 
+## Live Deployment
+
+**Frontend (Vercel):** [https://vercel.com/archie0410s-projects/slot-swapper-mvev](https://vercel.com/archie0410s-projects/slot-swapper-mvev)
+
 ## Vercel Deployment (Frontend)
 
 The frontend is configured to deploy on Vercel.
