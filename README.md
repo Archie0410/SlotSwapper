@@ -2,6 +2,8 @@
 
 A peer-to-peer time-slot swapping application that allows users to swap their available time slots with others.
 
+**🌐 Live Demo:** [View on Vercel](https://vercel.com/archie0410s-projects/slot-swapper-mvev)
+
 ## Overview
 
 SlotSwapper enables users to:
