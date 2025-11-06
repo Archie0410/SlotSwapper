@@ -513,3 +513,21 @@ npm run preview      # Preview production build
 - Docker containerization
 - CI/CD pipeline
 
+## Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+
+### Quick Deploy to Vercel (Frontend)
+
+1. Connect your GitHub repo to Vercel
+2. Set root directory to `client`
+3. Add environment variable: `VITE_API_URL` (your backend URL)
+4. Deploy!
+
+### Backend Deployment
+
+Deploy the backend separately to Railway, Render, or similar platform. See DEPLOYMENT.md for details.
+
+## License
+
+MIT
