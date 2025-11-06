@@ -513,7 +513,3 @@ npm run preview      # Preview production build
 - Docker containerization
 - CI/CD pipeline
 
-## License
-
-MIT
-
