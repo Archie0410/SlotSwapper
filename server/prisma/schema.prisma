@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum EventStatus {
+  BUSY
+  SWAPPABLE
+  SWAP_PENDING
+}
+
+enum SwapRequestStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+model User {
+  id           String    @id @default(uuid())
+  name         String
+  email        String    @unique
+  passwordHash String    @map("password_hash")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  ownedEvents    Event[]       @relation("EventOwner")
+  swapRequestsAsOfferer SwapRequest[] @relation("Offerer")
+  swapRequestsAsReceiver SwapRequest[] @relation("Receiver")
+
+  @@map("users")
+}
+
+model Event {
+  id        String      @id @default(uuid())
+  title     String
+  startTime DateTime    @map("start_time")
+  endTime   DateTime    @map("end_time")
+  status    EventStatus @default(BUSY)
+  ownerId   String      @map("owner_id")
+  createdAt DateTime    @default(now()) @map("created_at")
+  updatedAt DateTime    @updatedAt @map("updated_at")
+
+  owner User @relation("EventOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+
+  swapRequestsAsMySlot SwapRequest[] @relation("MySlot")
+  swapRequestsAsTheirSlot SwapRequest[] @relation("TheirSlot")
+
+  @@index([ownerId])
+  @@index([status])
+  @@map("events")
+}
+
+model SwapRequest {
+  id          String            @id @default(uuid())
+  mySlotId    String            @map("my_slot_id")
+  theirSlotId String            @map("their_slot_id")
+  fromUserId  String            @map("from_user_id")
+  toUserId    String            @map("to_user_id")
+  status      SwapRequestStatus @default(PENDING)
+  createdAt   DateTime          @default(now()) @map("created_at")
+  updatedAt   DateTime          @updatedAt @map("updated_at")
+
+  mySlot   Event @relation("MySlot", fields: [mySlotId], references: [id], onDelete: Cascade)
+  theirSlot Event @relation("TheirSlot", fields: [theirSlotId], references: [id], onDelete: Cascade)
+  fromUser User  @relation("Offerer", fields: [fromUserId], references: [id], onDelete: Cascade)
+  toUser   User  @relation("Receiver", fields: [toUserId], references: [id], onDelete: Cascade)
+
+  @@index([fromUserId])
+  @@index([toUserId])
+  @@index([status])
+  @@map("swap_requests")
+}
+

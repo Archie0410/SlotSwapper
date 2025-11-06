@@ -1,0 +1,170 @@
+.marketplace {
+  width: 100%;
+}
+
+.marketplace h1 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.slots-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.slot-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.slot-header h3 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.owner-badge {
+  background-color: #e8f4f8;
+  color: #2c3e50;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+}
+
+.slot-details {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.slot-details p {
+  margin: 0.5rem 0;
+}
+
+.btn-request {
+  background-color: #667eea;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.btn-request:hover:not(:disabled) {
+  background-color: #5568d3;
+}
+
+.btn-request:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-content h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.my-slots-list {
+  margin: 1.5rem 0;
+}
+
+.my-slot-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.my-slot-item strong {
+  display: block;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.my-slot-item p {
+  color: #555;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.btn-confirm {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-confirm:hover {
+  background-color: #229954;
+}
+
+.btn-cancel {
+  background-color: #95a5a6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1rem;
+  transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #7f8c8d;
+}
+
+.loading,
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #555;
+}
+
+.error-message {
+  background-color: #fee;
+  color: #c33;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
